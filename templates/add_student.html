@@ -3,35 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Student - Student Management System</title>
+    <title>Add Student - University Student Management System</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <header>
-        <h1>🎓 Student Management System</h1>
-        <nav>
-            <a href="{{ url_for('index') }}">Home</a> |
-            <a href="{{ url_for('add_student') }}">Add Student</a> |
-            <a href="{{ url_for('search_student') }}">Search Student</a>
-        </nav>
+        <div class="header-content">
+            <div class="logo">
+                <h1>🏛️ University Student Management System</h1>
+            </div>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a> |
+                <a href="{{ url_for('add_student') }}">Add Student</a> |
+                <a href="{{ url_for('search_student') }}">Search Student</a>
+            </nav>
+        </div>
     </header>
 
     <main>
+        <section class="welcome-section">
+            <h2>Enroll a New Student</h2>
+            <p>Welcome to the student enrollment portal. Here, you can add new students to our university database. Please ensure all information is accurate and up-to-date. Our system supports comprehensive student profiles, including academic records, personal details, and enrollment status.</p>
+            <p>By enrolling students through this secure platform, you contribute to maintaining the integrity of our academic community and ensuring compliance with educational standards.</p>
+        </section>
+
         <section class="form-section">
-            <h2>Add New Student</h2>
+            <h3>Student Enrollment Form</h3>
             <form action="{{ url_for('add_student') }}" method="POST">
-                <input type="text" name="student_id" placeholder="Student ID" required>
-                <input type="text" name="first_name" placeholder="First Name" required>
-                <input type="text" name="surname" placeholder="Surname" required>
-                <input type="text" name="grade" placeholder="Grade" required>
-                <button type="submit">Add Student</button>
+                <label for="student_id">Student ID:</label>
+                <input type="text" id="student_id" name="student_id" placeholder="Enter unique Student ID" required>
+
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" placeholder="Enter First Name" required>
+
+                <label for="surname">Surname:</label>
+                <input type="text" id="surname" name="surname" placeholder="Enter Surname" required>
+
+                <label for="grade">Grade:</label>
+                <input type="text" id="grade" name="grade" placeholder="Enter Current Grade (e.g., A, B+, 3.5)" required>
+
+                <button type="submit">Enroll Student</button>
             </form>
-            <a href="{{ url_for('index') }}">Back to Home</a>
+            <div class="navigation">
+                <a href="{{ url_for('index') }}">Back to Home</a> |
+                <a href="{{ url_for('search_student') }}">Search Existing Student</a>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Student Management System</p>
+        <p>&copy; 2025 University Student Management System. All rights reserved. | Contact: admin@university.edu | Privacy Policy</p>
     </footer>
 </body>
 </html>
