@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student - Student Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🎓 Student Management System</h1>
+        <nav>
+            <a href="./index.html">Home</a> | <a href="./add_student.html">Add Student</a> | <a href="./search_student.html">Search Student</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h2>Search Student</h2>
+            <form action="./search_student.html" method="POST">
+                <input type="text" name="student_id" placeholder="Student ID" required>
+                <button type="submit">Search</button>
+            </form>
+            {% if student %}
+            <div class="student-info">
+                <h3>Student Found:</h3>
+                <p><strong>ID:</strong> {{ student.student_id }}</p>
+                <p><strong>First Name:</strong> {{ student.first_name }}</p>
+                <p><strong>Surname:</strong> {{ student.surname }}</p>
+                <p><strong>Grade:</strong> {{ student.grade }}</p>
+            </div>
+            {% endif %}
+            <a href="/">Back to Home</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Student Management System</p>
+    </footer>
+</body>
+</html>
