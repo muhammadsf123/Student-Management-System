@@ -15,8 +15,7 @@ def add_student():
         student_id = request.form['student_id']
         first_name = request.form['first_name']
         surname = request.form['surname']
-        grade = request.form['grade']
-        manager.add_student(student_id, first_name, surname, grade)
+        manager.add_student(student_id, first_name, surname)
         flash('Student added successfully!', 'success')
         return redirect(url_for('index'))
     return render_template('add_student.html')

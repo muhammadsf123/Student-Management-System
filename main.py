@@ -16,8 +16,7 @@ def main():
             student_id = input("Enter Student ID: ")
             first_name = input("Enter First Name: ")
             surname = input("Enter Surname: ")
-            grade = input("Enter Which Grade: ")
-            manager.add_student(student_id, first_name, surname, grade)
+            manager.add_student(student_id, first_name, surname)
 
         elif choice == "2":
             manager.display_students()
