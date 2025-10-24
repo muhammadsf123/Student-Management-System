@@ -11,15 +11,15 @@
         <h1>🎓 Student Management System</h1>
         <nav>
             <a href="{{ url_for('index') }}">Home</a> |
-            <a href="{{ url_for('add_student_page') }}">Add Student</a> |
-            <a href="{{ url_for('search_student_page') }}">Search Student</a>
+            <a href="{{ url_for('add_student') }}">Add Student</a> |
+            <a href="{{ url_for('search_student') }}">Search Student</a>
         </nav>
     </header>
 
     <main>
         <section class="form-section">
             <h2>Search Student</h2>
-            <form action="{{ url_for('search_student_page') }}" method="POST">
+            <form action="{{ url_for('search_student') }}" method="POST">
                 <input type="text" name="student_id" placeholder="Enter Student ID" required>
                 <button type="submit">Search</button>
             </form>
@@ -28,8 +28,8 @@
                 <div class="student-info">
                     <h3>Student Found:</h3>
                     <p><strong>ID:</strong> {{ student.student_id }}</p>
-                    <p><strong>Name:</strong> {{ student.name }}</p>
-                    <p><strong>Age:</strong> {{ student.age }}</p>
+                    <p><strong>First Name:</strong> {{ student.first_name }}</p>
+                    <p><strong>Surname:</strong> {{ student.surname }}</p>
                     <p><strong>Grade:</strong> {{ student.grade }}</p>
                 </div>
             {% elif student is not none %}
