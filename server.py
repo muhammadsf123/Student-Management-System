@@ -4,10 +4,12 @@ from modules.student_manager import StudentManager
 app = Flask(__name__)
 manager = StudentManager("data/students.json")
 
+# Home Page Route
 @app.route("/")
 def index():
     return render_template("index.html", students=manager.students)
 
+# Route to Add Student (Form submits here)
 @app.route("/add_student", methods=["POST"])
 def add_student():
     student_id = request.form["student_id"]

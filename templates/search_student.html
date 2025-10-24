@@ -10,27 +10,33 @@
     <header>
         <h1>🎓 Student Management System</h1>
         <nav>
-            <a href="./index.html">Home</a> | <a href="./add_student.html">Add Student</a> | <a href="./search_student.html">Search Student</a>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('add_student_page') }}">Add Student</a> |
+            <a href="{{ url_for('search_student_page') }}">Search Student</a>
         </nav>
     </header>
 
     <main>
         <section class="form-section">
             <h2>Search Student</h2>
-            <form action="./search_student.html" method="POST">
-                <input type="text" name="student_id" placeholder="Student ID" required>
+            <form action="{{ url_for('search_student_page') }}" method="POST">
+                <input type="text" name="student_id" placeholder="Enter Student ID" required>
                 <button type="submit">Search</button>
             </form>
+
             {% if student %}
-            <div class="student-info">
-                <h3>Student Found:</h3>
-                <p><strong>ID:</strong> {{ student.student_id }}</p>
-                <p><strong>First Name:</strong> {{ student.first_name }}</p>
-                <p><strong>Surname:</strong> {{ student.surname }}</p>
-                <p><strong>Grade:</strong> {{ student.grade }}</p>
-            </div>
+                <div class="student-info">
+                    <h3>Student Found:</h3>
+                    <p><strong>ID:</strong> {{ student.student_id }}</p>
+                    <p><strong>Name:</strong> {{ student.name }}</p>
+                    <p><strong>Age:</strong> {{ student.age }}</p>
+                    <p><strong>Grade:</strong> {{ student.grade }}</p>
+                </div>
+            {% elif student is not none %}
+                <p>No student found.</p>
             {% endif %}
-            <a href="./index.html">Back to Home</a>
+
+            <a href="{{ url_for('index') }}">Back to Home</a>
         </section>
     </main>
 

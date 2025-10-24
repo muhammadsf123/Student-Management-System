@@ -10,21 +10,23 @@
     <header>
         <h1>🎓 Student Management System</h1>
         <nav>
-            <a href="./index.html">Home</a> | <a href="./add_student.html">Add Student</a> | <a href="./search_student.html">Search Student</a>
+            <a href="{{ url_for('index') }}">Home</a> |
+            <a href="{{ url_for('add_student_page') }}">Add Student</a> |
+            <a href="{{ url_for('search_student_page') }}">Search Student</a>
         </nav>
     </header>
 
     <main>
         <section class="form-section">
             <h2>Add New Student</h2>
-            <form action="./add_student.html" method="POST">
+            <form action="{{ url_for('add_student') }}" method="POST">
                 <input type="text" name="student_id" placeholder="Student ID" required>
-                <input type="text" name="first_name" placeholder="First Name" required>
-                <input type="text" name="surname" placeholder="Surname" required>
+                <input type="text" name="name" placeholder="First Name" required>
+                <input type="text" name="age" placeholder="Age" required>
                 <input type="text" name="grade" placeholder="Grade" required>
                 <button type="submit">Add Student</button>
             </form>
-            <a href="./index.html">Back to Home</a>
+            <a href="{{ url_for('index') }}">Back to Home</a>
         </section>
     </main>
 
