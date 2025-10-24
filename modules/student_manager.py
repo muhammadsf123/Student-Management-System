@@ -25,8 +25,8 @@ class StudentManager:
         with open(self.data_file, "w") as file:
             json.dump([student.__dict__ for student in self.students], file, indent=4)
 
-    def add_student(self, student_id, name, age, grade):
-        student = Student(student_id, name, age, grade)
+    def add_student(self, student_id, first_name, surname, grade):
+        student = Student(student_id, first_name, surname, grade)
         self.students.append(student)
         self.save_students()
         print("Student added and saved successfully!")

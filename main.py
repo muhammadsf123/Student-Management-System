@@ -13,11 +13,11 @@ def main():
         choice = input("Enter your choice: ")
 
         if choice == "1":
-            student_id = input("Enter ID: ")
-            name = input("Enter Name: ")
-            age = input("Enter Age: ")
-            grade = input("Enter Grade: ")
-            manager.add_student(student_id, name, age, grade)
+            student_id = input("Enter Student ID: ")
+            first_name = input("Enter First Name: ")
+            surname = input("Enter Surname: ")
+            grade = input("Enter Which Grade: ")
+            manager.add_student(student_id, first_name, surname, grade)
 
         elif choice == "2":
             manager.display_students()
