@@ -24,7 +24,7 @@
         <section class="welcome-section">
             <h2>Student Record Search</h2>
             <p>Access detailed student information quickly and securely. Our advanced search functionality allows administrators and faculty to retrieve student records by ID, ensuring privacy and data protection. This tool is essential for academic advising, grade reporting, and administrative tasks.</p>
-            <p>Enter the student's unique ID below to view their current academic profile, including enrollment status and personal details.</p>
+            <p>Enter the student's unique ID below to view their current academic profile, including enrolment status and personal details.</p>
         </section>
 
         <section class="form-section">
@@ -42,7 +42,7 @@
                         <p><strong>Student ID:</strong> {{ student.student_id }}</p>
                         <p><strong>First Name:</strong> {{ student.first_name }}</p>
                         <p><strong>Surname:</strong> {{ student.surname }}</p>
-                        <p><strong>Enrollment Status:</strong> Active</p>
+                        <p><strong>Enrolment Status:</strong> Active</p>
                         <p><strong>Last Updated:</strong> {{ student.updated_at if student.updated_at else 'N/A' }}</p>
                     </div>
                 </div>
