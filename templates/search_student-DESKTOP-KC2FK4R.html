@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student - University Student Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>🏛️ University Student Management System</h1>
+            </div>
+            <nav>
+                <a href="{{ url_for('index') }}">Home</a> |
+                <a href="{{ url_for('add_student') }}">Add Student</a> |
+                <a href="{{ url_for('search_student') }}">Search Student</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>Student Record Search</h2>
+            <p>Access detailed student information quickly and securely. Our advanced search functionality allows administrators and faculty to retrieve student records by ID, ensuring privacy and data protection. This tool is essential for academic advising, grade reporting, and administrative tasks.</p>
+            <p>Enter the student's unique ID below to view their current academic profile, including enrolment status and personal details.</p>
+        </section>
+
+        <section class="form-section">
+            <h3>Search by Student ID</h3>
+            <form action="{{ url_for('search_student') }}" method="POST">
+                <label for="student_id">Student ID:</label>
+                <input type="text" id="student_id" name="student_id" placeholder="Enter Student ID to search" required>
+                <button type="submit">Search Records</button>
+            </form>
+
+            {% if student %}
+                <div class="student-info">
+                    <h3>Student Record Found:</h3>
+                    <div class="student-details">
+                        <p><strong>Student ID:</strong> {{ student.student_id }}</p>
+                        <p><strong>First Name:</strong> {{ student.first_name }}</p>
+                        <p><strong>Surname:</strong> {{ student.surname }}</p>
+                        <p><strong>Enrolment Status:</strong> Active</p>
+                        <p><strong>Last Updated:</strong> {{ student.updated_at if student.updated_at else 'N/A' }}</p>
+                    </div>
+                </div>
+            {% elif student is not none %}
+                <div class="no-results">
+                    <p>No student record found with the provided ID. Please verify the ID and try again, or <a href="{{ url_for('add_student') }}">enroll a new student</a>.</p>
+                </div>
+            {% endif %}
+
+            <div class="navigation">
+                <a href="{{ url_for('index') }}">Back to Home</a> |
+                <a href="{{ url_for('add_student') }}">Enroll New Student</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 University Student Management System. All rights reserved. | Contact: admin@university.edu | Privacy Policy</p>
+    </footer>
+</body>
+</html>
