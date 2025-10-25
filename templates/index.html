@@ -21,6 +21,16 @@
     </header>
 
     <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+
         <section class="welcome-section">
             <h2>Welcome to Our University</h2>
             <p>At our esteemed university, we are committed to fostering academic excellence, innovation, and personal growth. Our Student Management System provides a seamless platform for managing student records, ensuring data integrity, and supporting administrative efficiency.</p>
@@ -44,6 +54,7 @@
         <section class="students-section">
             <h2>Current Students List</h2>
             <p>Below is the list of all enrolled students. You can add new students, search for specific records, or remove entries as needed. Our system ensures all information is up-to-date and compliant with university policies.</p>
+
             <table>
                 <thead>
                     <tr>
@@ -68,8 +79,9 @@
                     {% endfor %}
                 </tbody>
             </table>
+
             {% if not students %}
-            <p>No students enrolled yet. <a href="{{ url_for('add_student') }}">Add the first student</a>.</p>
+            <p>No students enrolled yet. <a href="{{url_for('add_student')}}">Add the first student</a>.</p>
             {% endif %}
         </section>
     </main>
